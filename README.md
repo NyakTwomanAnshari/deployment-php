@@ -16,17 +16,19 @@
 ## Deployment Web App PHP
 - Keluar dari directory phpmyadmin ```cd ..```
 - Selanjutnya buat directory baru ```mkdir deploy-php``` untuk mendeploy app php
+- Clone file app php dari github ```git clone git@github.com:NyakTwomanAnshari/laundry.git```
 - Masuk ke directory core ```cd core``` lalu ubah konfigurasi di ```config.php``` sesuai dengan database yang telah dibuat <br>
 ![image deploy](assets/2.png) <br>
 
 - Kemudian pindah kembali ke directory ```deploy-php``` buat ```Dockerfile``` dengan konfigurasi sebagi beikut. Dockerfile tersebut digunakan untuk membuat image <br>
 ![image deploy](assets/3.png) <br>
 
-- Jalankan perintah ```docker buid -t app-php .```  untuk membuat image dengan nama app.php
+- Jalankan perintah ```docker build -t app-php .```  untuk membuat image dengan nama app.php
 - Buat ```docker-compose.yml``` dengan konfigurasi sebagai berikut <br>
 ![image deploy](assets/4.png) <br>
 
 - Jalankan perintah ```docker-compose up -d``` untuk membuat container sesuai konfigurasi pada docker compose
+- Pindah semua file ke directory ```php/src``` kecuali laundry2.sql dan tgs_laundry2.sql
 - Buka browser kemudian ketik IP server dan port docker dari container yang telah di deploy <br>
 ![image deploy](assets/7.png) <br>
 ![image deploy](assets/8.png) <br>
